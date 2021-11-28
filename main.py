@@ -14,12 +14,10 @@ async def on_message(message):
         cmd = command[0]
         if cmd == ".lv":
             await message.delete()
-            count = 0
             for c in bot.private_channels:
                 if isinstance(c, discord.GroupChannel):
                     byp = []  # Enter the IDs of the groups to be bypassed
                     if not c.id in byp:
-                        count = count + 1
                         await c.leave()
             print("Success")
             await bot.close()
